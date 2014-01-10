@@ -27,4 +27,16 @@ describe Geometry::Triangle do
       expect(triangle.valid?).to eq false
     end
   end
+
+  describe 'angles' do
+    it 'returns an array' do
+      triangle = Geometry::Triangle.new(3,4,5)
+      expect(triangle.angles.class).to eq Array
+    end
+
+    it 'returns an array of the angles' do
+      triangle = Geometry::Triangle.new(1,1,1)
+      expect(triangle.angles.sort).to eq [59.99999999999999, 59.99999999999999, 59.99999999999999]
+    end
+  end
 end

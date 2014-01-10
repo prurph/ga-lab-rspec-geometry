@@ -1,3 +1,5 @@
+require 'pry'
+
 module Geometry
   class Triangle
     def initialize(sideA, sideB, sideC)
@@ -17,6 +19,17 @@ module Geometry
     end
 
     def angles
+      sides = [@sideA.to_f, @sideB.to_f, @sideC.to_f]
+      angles = []
+
+      # put cos of each angle into angles
+      angles[0] = (sides[1] ** 2 + sides[2] ** 2 - sides[0] ** 2) / (2 * sides[1] * sides[2])
+      angles[1] = (sides[0] ** 2 + sides[2] ** 2 - sides[1] ** 2) / (2 * sides[0] * sides[2])
+      angles[2] = (sides[0] ** 2 + sides[1] ** 2 - sides[2] ** 2) / (2 * sides[0] * sides[1])
+
+      # now cos-1 the array and convert to degrees
+      angles.map!{ |x| Math.acos(x) * 180 / Math::PI }
+      angles
 
     end
 
