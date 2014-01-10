@@ -17,9 +17,13 @@ module Geometry
     end
 
     def angles
+
     end
 
     def valid?
+      (@sideA < @sideB + @sideC) && (@sideA > (@sideB - @sideC).abs) &&
+      (@sideB < @sideA + @sideC) && (@sideB > (@sideA - @sideC).abs) &&
+      (@sideC < @sideA + @sideB) && (@sideC > (@sideA - @sideB).abs)
     end
   end
 end

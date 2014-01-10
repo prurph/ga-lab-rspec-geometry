@@ -16,4 +16,15 @@ describe Geometry::Triangle do
     end
   end
 
+  describe '#valid?' do
+    it 'returns true for valid triangle' do
+      triangle = Geometry::Triangle.new(3,4,5)
+      expect(triangle.valid?).to eq true
+    end
+
+    it 'returns false for invalid triangle' do
+      triangle = Geometry::Triangle.new(2,2,10)
+      expect(triangle.valid?).to eq false
+    end
+  end
 end
